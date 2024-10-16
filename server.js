@@ -5,7 +5,7 @@ const app = express(); // إنشاء تطبيق Express
 // إعداد المتغيرات
 const CLIENT_ID = '1296056932657926144'; // معرف العميل من تطبيق Discord
 const CLIENT_SECRET = 'EYxPGNjNijryCt0VDMUpXhh0XwJouePd'; // السر الخاص بالعميل
-const REDIRECT_URI = 'https://discord.com/oauth2/authorize?client_id=1296056932657926144&response_type=code&redirect_uri=file%3A%2F%2F%2FC%3A%2FUsers%2Fayoub%2FDownloads%2Fmechanic-boxes%2FBuild-and-Deploy-Ecommerce-Website-main%2Findex.html&scope=identify+guilds+email+guilds.join+connections'; // URI لإعادة التوجيه بعد تسجيل الدخول
+const REDIRECT_URI = 'https://discord.com/oauth2/authorize?client_id=1296056932657926144&response_type=code&redirect_uri=https%3A%2F%2Fayoubhdax.github.io%2Fpoletomac%2Findex.html&scope=identify+guilds+email+guilds.join+connections'; // URI لإعادة التوجيه بعد تسجيل الدخول
 
 // نقطة النهاية لتسجيل الدخول عبر Discord
 app.get('/auth/discord/callback', async (req, res) => {
