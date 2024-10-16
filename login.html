@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كراج الميكانيك</title>
+    <script src="https://kit.fontawesome.com/0d7398e38f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section id="header">
+        <img src="img/logo.png" class="logo" alt="">
+        <div>
+            <ul id="navbar"> 
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a class="active" href="login.html">تسجيل الدخول</a></li>
+                <li><a href="blog.html">الطلب</a></li>
+                <li><a href="about.html">عنا</a></li>
+                <li><a href="contact.html">طرق التواصل</a></li>
+                <li><a href="cart.html"><i class="fa-solid fa-store"></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- قسم تسجيل الدخول -->
+    <section id="login" class="section-p1">
+        <div class="form-container">
+            <h1>تسجيل الدخول</h1>
+
+            <!-- Discord Login Button -->
+            <a href="https://discord.com/oauth2/authorize?client_id=1296056932657926144&response_type=code&redirect_uri=file%3A%2F%2F%2FC%3A%2FUsers%2Fayoub%2FDownloads%2Fmechanic-boxes%2FBuild-and-Deploy-Ecommerce-Website-main%2Findex.html&scope=identify+guilds+email+guilds.join+connections" class="discord-btn">
+                <img src="img/discord-logo.png" alt="Discord Logo" class="discord-logo">
+            </a>
+
+            <!-- نموذج بيانات التاجر -->
+            <form id="login-form" action="/login" method="POST">
+                <label for="name"> الاسم:</label>
+                <input type="text" id="name" name="name" placeholder="أدخل اسمك" required>
+
+                <label for="job-type">نوع العمل:</label>
+                <select id="job-type" name="job-type" required onchange="checkJobType()">
+                    <option value="" disabled selected>اختر نوع العمل</option>
+                    <option value="مسؤول">مسؤول</option>
+                    <option value="ورشة التصنيع">ورشة التصنيع</option>
+                    <option value="تاجر">تاجر</option>
+                </select>
+
+                <div id="trader-type" style="display: none;">
+                    <label for="business-type">نوع التجارة:</label>
+                    <select id="business-type" name="business-type" required onchange="checkBusinessType()">
+                        <option value="" disabled selected>اختر نوع التجارة</option>
+                        <option value="بقالة">بقالة</option>
+                        <option value="فود ترك">فود ترك</option>
+                        <option value="تاجر حديد">تاجر حديد</option>
+                    </select>
+
+                    <div id="store-location" style="display: none;">
+                        <label for="location">موقع البقالة:</label>
+                        <input type="text" id="location" name="location" placeholder="أدخل موقع البقالة">
+                    </div>
+                </div>
+
+                <button type="submit">إرسال</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript لإظهار/إخفاء حقل نوع التجارة
+        function checkJobType() {
+            var jobType = document.getElementById("job-type").value;
+            var traderTypeField = document.getElementById("trader-type");
+
+            if (jobType === "تاجر") {
+                traderTypeField.style.display = "block";
+            } else {
+                traderTypeField.style.display = "none";
+                document.getElementById("business-type").value = ""; // Reset business type
+                document.getElementById("store-location").style.display = "none"; // Hide location
+                document.getElementById("location").value = ""; // Reset location input
+            }
+        }
+
+        // JavaScript لإظهار/إخفاء حقل موقع البقالة
+        function checkBusinessType() {
+            var businessType = document.getElementById("business-type").value;
+            var locationField = document.getElementById("store-location");
+
+            if (businessType === "بقالة") {
+                locationField.style.display = "block";
+            } else {
+                locationField.style.display = "none";
+                document.getElementById("location").value = ""; // Reset location input
+            }
+        }
+    </script>
+
+</body>
+</html>
